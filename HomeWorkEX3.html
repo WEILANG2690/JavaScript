@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        document.getElementById("DOMContentLoaded", function () {
+
+        });
+        function(){
+
+        }
+    </script>
+    <style>
+       img{
+            width:50%;
+            height:50%;
+        }
+       li{          
+           width:20px;
+           float:none;
+       }
+       .bottom{
+           display:block;
+           float:right;
+       }
+       .bottom2{
+           float:left;
+            width:7em; 
+       }
+
+        #abgneBlock {
+	width: 640px;
+	height: 640px;
+	/*position: relative;*/
+	overflow: auto;
+    text-align:center;
+	border: 1px solid #ccc;
+}
+ 
+        #abgneBlock ul.list {
+	  padding: 0;
+	  margin: 0;
+	  list-style: none;
+	  position: absolute;
+	  width: 9999px;
+	  height: 100%;
+}
+        #abgneBlock ul.list li {
+		float: left;
+		width: 640px;
+		height: 100%;
+	}
+        #abgneBlock ul.playerControl {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		height: 14px;
+	}
+	#abgneBlock ul.playerControl li {
+		float: left;
+		width: 10px;
+		height: 10px;
+		cursor: pointer;
+		margin: 0px 2px;
+		background: url(imgs/1.jpg) no-repeat -10px 0;
+	}
+    </style>
+</head>
+<body>
+    <!--<div>
+        <ul>           
+            <li style="background-image: url(imgs/1.png); "><a></a></li>
+            <li style="background-image: url(imgs/1.png); "><a></a></li>
+            <li style="background-image: url(imgs/1.png); "><a></a></li>
+            <li style="background-image: url(imgs/1.png); "><a></a></li>
+            <li style="background-image: url(imgs/1.png); "><a></a></li>
+            <li style="background-image: url(imgs/1.png); "><a></a></li>-->
+    <!--</ul>
+    </div>-->
+
+            <div id="abgneBlock">
+                <ul class="list">
+                    <li><a target="_blank" href="#"><img src="imgs/1.png"></a></li>
+                    <li><a target="_blank" href="#"><img src="imgs/2.png"></a></li>
+                    <li><a target="_blank" href="#"><img src="imgs/3.png"></a></li>
+                    <li><a target="_blank" href="#"><img src="imgs/4.png"></a></li>
+                    <li><a target="_blank" href="#"><img src="imgs/5.png"></a></li>
+                    <li><a target="_blank" href="#"><img src="imgs/6.png"></a></li>
+                </ul>
+                <ul class="bottom">
+                    <li class="bottom2"></li>
+                    <li class="bottom2"></li>
+                    <li class="bottom2"></li>
+                    <li class="bottom2"></li>
+                    <li class="bottom2"></li>
+                    <li class="bottom2"></li>
+                </ul>
+            </div>
+      <footer></footer>
+</body>
+</html>
