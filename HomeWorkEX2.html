@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("account").onblur = chkAcc;
+            document.getElementById("PWD").onblur = chkPwd;
+            document.getElementById("bir").onblur = getBir;
+        });
+            
+        
+        function chkAcc() {
+            var theAcc = document.getElementById("account").value;
+            if (theAcc == "")
+                document.getElementById("h").innerHTML = "帳號不能為空白";
+            else if (theAcc.length >= 2) {
+                for (var i = 0; i < theAcc.length; i++) {
+                    if (theAcc.charAt(i) >= "\u4e00" && theAcc.charAt(i) <= "\u9fa5") {
+                        document.getElementById("h").innerHTML = "帳號可以使用";                   
+                    }
+                }
+            }
+            else
+                document.getElementById("h").innerHTML = "帳號請輸入兩個以上字元";
+        }
+        function chkPwd() {
+            var thePwd = document.getElementById("PWD").value;
+            var flag1 = false;
+            var flag2 = false;
+            var flag3 = false;
+
+
+        if (thePwd == "")
+            document.getElementById("n").innerHTML = "密碼不能為空白";
+
+       else if (thePwd.length >= 6 ) {
+            for (var i = 0;i< thePwd.length; i++) {
+                var PwdChar = thePwd.charAt(i).toUpperCase();
+                if (PwdChar >= "A" && PwdChar <= "Z")
+                    flag1 = true;
+                else if (PwdChar >= "0" && PwdChar <= "9")
+                    flag2 = true;
+                else if(PwdChar == '!'|| PwdChar == '%40' || PwdChar == '%23' || PwdChar == '%24' || PwdChar == '%25' || PwdChar == '%26' || PwdChar == '%5E' || PwdChar == '*' )
+                    flag3 = true;
+                //if (flag1 && flag2 && flag3)
+                //    break;
+            }
+            if (flag1 && flag2 && flag3)
+                document.getElementById("n").innerHTML = "密碼格式正確";
+            else
+                document.getElementById("n").innerHTML = "密碼格式不正確";
+        }
+        else
+           document.getElementById("n").innerHTML = "請輸入六個字元以上";
+        }
+
+        function getBir() {
+            //var A = document.getElementById("bir").value;
+            var A = (document.getElementById("bir").value).split(/[\s-/]/);
+            //var re = /^([0-9]{4})[./][\s][.-]([0-9]{1,2}[./][\s][.-]([0-9]){1,2}[./][\s][.-])$/;
+
+            var d = new Date(A);
+            var Y = d.getFullYear();
+            var M = d.getMonth() + 1;
+            var D = d.getDate();
+
+            if(A==""){
+                document.getElementById("b").innerHTML = "不能為空白";
+               
+            }
+            else if ( isNaN(Y) ||isNaN(M) ||isNaN(D) ) {
+                document.getElementById("b").innerHTML = "格式輸入錯誤";
+               
+            }
+           else if (A[0] == Y && A[1] == M && A[2] == D) {
+               document.getElementById("b").innerHTML = "格式輸入正確";
+           } else {
+               document.getElementById("b").innerHTML = "格式輸入錯誤";
+           }
+           
+        }
+            //var flag4 = false;
+            //var flag5 = false;
+            //var flag6 = false;
+
+            //if (A == "") {
+            //    document.getElementById("b").innerHTML = "生日不能為空白";
+            //    if (Y == re)
+            //        flag4 = true;
+            //    else if (M == re)
+            //        flag5 = true;
+            //    else if (D == re)
+            //        flag6 = true;
+            //}
+            //if (flag4 && flag5 && flag6)
+            //    document.getElementById("b").innerHTML = "輸入正確";
+            //else {
+            //    document.getElementById("b").innerHTML = "輸入錯誤";
+            //}
+        
+        //    document.write(Y);
+
+        //    var year = B[0];
+        //    var month = B[1];
+        //    var day = B[2];
+        //    document.write(year+m);
+        //}
+       
+    </script>
+    <style>
+        fieldset {
+            width: 500px;
+            margin: auto;
+            border-radius: 20px;
+        }
+
+        div {
+            border-bottom: solid 1px black;
+            padding: 5px;
+            padding-bottom: 5px;
+          
+        }
+        .t1{
+            font-size:3px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Form Check</legend>
+            <div>
+                <label>帳號：</label><input type="text" name="account" id="account" placeholder="請輸入帳號" autocomplete="off" /><span id="h"></span><br>            
+                <label class="t1">(1.不可空白 2.至少兩個字以上 3. 必須全為中文字)</label>
+                
+            </div>
+            <div>
+                <label>密碼：</label><input type="text" name="PWD" id="PWD"  /><span id="n"></span><br>
+                <label class="t1">(1.不可空白 2.至少六個字以上且必須包含英文字母,數字,和特殊符號[!@#$%^&*])</label>
+            </div>
+            <div>
+                <label>生日：</label><input type="text" name="bir" id="bir" /><span id="b"></span><br>
+                <label class="t1">(格式：西元年／月／日 yyyy／MM／dd)</label>
+            </div>
+            <div>
+                <input type="submit" value="確定" onclick="chkAcc(), chkPwd()" />
+                <input type="reset" value="清除" />
+            </div>
+        </fieldset>
+
+    </form>
+</body>
+</html>
