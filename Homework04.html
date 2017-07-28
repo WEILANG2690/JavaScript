@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Homework04</title>
+	<meta charset="utf-8" />
+    <style>
+        *{
+            margin:auto;
+        }
+        fieldset{
+            width:550px;
+            height:650px;
+            border:10px dashed #4F4F4F;
+            border-radius:15px;
+            background-color:gainsboro;
+        }
+        legend{
+            font-weight:bold;
+            font-family:fon3;
+            font-size:16px;
+            border-radius:15px;
+            background-color:gainsboro;
+        }
+        figure{
+            border-radius:15px;
+            width:500px;
+            height:500px;
+            margin:auto;
+            border:2px solid #4F4F4F;
+        }
+        figure.img1{
+             margin:auto;
+        }
+        @font-face{
+            font-family:fon3;
+            src:url(../EEITLabSrc/fonts/JustOldFashion.ttf);
+        }
+        .set1{
+            width:400px;
+            height:10px;
+            padding-left:100px;
+            padding-top:10px;
+            padding-bottom:10px;
+        }
+        .set2{
+            padding-top:20px;
+        }
+        a.prev{vertical-align:middle}
+        a.prev:hover{-webkit-filter: opacity(0.4);}  
+        .img1{
+            border-radius:15px;
+        }
+        .img2{
+            width:128px;
+            height:70px;
+            padding-top:15px;
+            padding-left:25px;
+        }   
+        .img3{
+            width:128px;
+            height:70px;
+            margin-left:50px;
+        }
+        .img4{
+            width:128px;
+            height:70px;
+            margin-left:60px;
+        }
+        .img5{
+            width:40px;
+            height:40px;
+            padding-left:15px
+        }
+    </style>
+    <script>
+        var img = setInterval(nextimg, 2000);
+        var num = 1,runstatus=true;
+
+        function nextimg() {
+
+            if (num == 5) {
+                num = 1
+            } else
+            {
+                num++;                          
+            }
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+
+        function last() {
+            if (num == 1) {
+                num = 5
+            } else {
+                num--;
+            }
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+
+        function next() {
+            if (num == 5) {
+                num = 1
+            } else {
+                num++;
+            }
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+
+        function stop() {
+            //停止計時器
+            if (runstatus == false)
+            {
+                runstatus = true;
+                document.getElementById("img4").outerHTML = "<img id='img4'class='img4' src='image/stop.png'/>"
+                img = setInterval(nextimg, 2000);
+            } else {
+                document.getElementById("img4").outerHTML = "<img id='img4'class='img4' src='image/star.png'/>"
+                clearInterval(img);
+                runstatus = false;
+            }       
+        }
+
+        function f1() {
+            num = 1;
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+        function f2() {
+            num = 2;
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+        function f3() {
+            num = 3;
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+        function f4() {
+            num = 4;
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+        function f5() {
+            num = 5;
+            document.getElementById("img1").outerHTML = "<img id='img1' class='img1' src='/Html/image/" + num + ".jpg'/>"
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Moon moon</legend>
+            <div>
+                <figure>
+                    <a href="https://news.gamme.com.tw/1458027"><img id="img1" class="img1" src="/Html/fonts/1.jpg" /></a>
+                </figure>
+            </div>
+            <div class="set1" >
+                <a id="num1" class="prev" onclick="f1();"><img class="img5" src="image/01.png" id="numimg1"/></a>
+                <a id="num2" class="prev" onclick="f2();"><img class="img5" src="image/02.png" id="numimg2"/></a>
+                <a id="num3" class="prev" onclick="f3();"><img class="img5" src="image/03.png" id="numimg3"/></a>
+                <a id="num4" class="prev" onclick="f4();"><img class="img5" src="image/04.png" id="numimg4"/></a>
+                <a id="num5" class="prev" onclick="f5();"><img class="img5" src="image/05.png" id="numimg5"/></a>
+            </div>
+            <div class="set2">        
+                <a id="img2" class="prev" onclick="last();"><img class="img2" src="image/left1.png" /></a>
+                <a class="prev" onclick="stop();"><img id="img4"class="img4" src="image/stop.png" /></a>
+                <a id="img3" class="prev" onclick="next();"><img class="img3" src="image/right2.png" /></a>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

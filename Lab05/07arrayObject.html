@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>07arrayObject.html</title>
+    <script>
+        ////建立陣列語法 1        
+        var balls = new Array();
+        //alert(balls.length);
+        balls[0] = "basketball";
+        balls[1] = "baseball";
+        balls[2] = "tennis";
+        balls[3] = "volleyball";
+        balls[4] = 123;
+        //alert(balls.length);
+        //列印陣列語法 1
+        document.write(balls);
+
+
+        //建立陣列語法 2
+        var balls2 = new Array("basketball", "baseball", "tennis", 123);
+        //document.write(balls2);
+
+        //建立陣列語法 3
+        var balls3 = ["basketball", "baseball", "tennis", "volleyball",12345];
+        //document.write(balls3);
+
+
+        //列印陣列語法 2 -- 使用 for loop
+        for (var i = 0; i < balls3.length; i++) {
+            //document.write("balls3[" + i + "]=" + balls3[i] + "<br>");
+        }
+
+
+        //列印陣列語法 3 -- 使用 for in 
+        //for(obj in arrary|object)
+        for (var obj in balls3) {
+            //document.write("balls3[" + obj + "]=" + balls3[obj] + "<br>");
+        }
+        //alert(balls.length);
+
+        //建立物件，語法一
+        var personal = new Object();
+
+        //定義物件屬性
+        personal.name = "Jack";
+        personal.ID = "A123456789";
+        personal.Email = "Jack@gmail.com";
+        personal["age"] = 35;
+
+        for (var obj in personal) {
+            //document.write("personal[" + obj + "]=" + personal[obj] + "<br>");
+        }
+        //alert(personal.length);
+
+        var strObj = new String("java script hello");
+        var strObjAry = strObj.split(" ");
+        for (var i = 0; i < strObjAry.length; i++) {
+            //document.write("strObjAry[" + i + "]=" + strObjAry[i] + "<br>");
+        }
+
+
+        var strCookie = "name2=Mary; name=Jack";
+        cookieArray = strCookie.split(";");
+        for (var i = 0; i < cookieArray.length; i++) {
+            thisCookie = cookieArray[i].split("=");
+            cookieName = decodeURI(thisCookie[0]);
+            cookieValue = decodeURI(thisCookie[1]);
+            document.writeln( cookieName + "," + cookieValue + "<br>");
+        }
+
+        var ary = new Array();
+        ary[0] = ["name2", "Mary"];
+        ary[1] = ["name", "Jack"];
+        //ary[0] = new Array();
+        //ary[0][0] = "name2";
+        //ary[0][1] = "Mary";
+        //ary[1] = new Array();
+        //ary[1][0] = "name";
+        //ary[1][1] = "Jack";
+        for (var i = 0; i < ary.length; i++) {
+            for (var j = 0; j < ary[i].length; j++) {
+                document.write("ary["+i+"]["+j+"]="+ary[i][j] + "<br>");
+            }
+        }
+
+     
+        var balls = ["basketball", "baseball", "tennis", "volleyball", 123];
+        balls.push("item");
+        balls.pop();
+        //alert(balls);
+            document.write("join('-')="+balls.join("-")+"<br>");
+            document.write("reverse().join('=>')="+balls.reverse().join("=>")+"<br>");
+            document.write("sort()="+balls.sort()+"<br>");
+    
+    </script>
+</head>
+<body>
+
+</body>
+</html>

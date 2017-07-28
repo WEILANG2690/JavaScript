@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>04locationHref.html</title>
+    <script>
+        /* 
+        //1.
+        //http://www.w3schools.com/jsref/dom_obj_select.asp
+        document.addEventListener("DOMContentLoaded", function () {            
+            document.getElementById("idSel").onchange = redirect;
+        });
+
+        function redirect() {
+            //取得在下拉式選單所選取的索引(selectedIndex)
+            var theIndex = document.getElementById("idSel").selectedIndex;
+            //alert(theIndex);
+            var linker = ["#", "http://taipei.iiiedu.org.tw", "http://tw.yahoo.com", "http://www.google.com.tw"];
+            location.href = linker[theIndex];           
+        }
+        */
+
+
+        /*
+        //2.
+        //http://www.w3schools.com/jsref/dom_obj_select.asp
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("idSel").onchange = function () { redirect(this.selectedIndex); }            
+        });
+
+        function redirect(theIndex) {
+            //取得在下拉式選單所選取的索引(selectedIndex)
+            var linker = ["#", "http://taipei.iiiedu.org.tw", "http://tw.yahoo.com", "http://www.google.com.tw"];
+            location.href = linker[theIndex];            
+        }
+       */
+
+        /*
+        //3.
+        //http://www.w3schools.com/jsref/dom_obj_select.asp
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("idSel").onchange = redirect;
+        });
+
+        function redirect() {
+            //取得在下拉式選單所選取的索引(selectedIndex)
+            var linker = ["#", "http://taipei.iiiedu.org.tw", "http://tw.yahoo.com", "http://www.google.com.tw"];
+            location.href = linker[this.selectedIndex];
+        }
+        */
+    </script>
+</head>
+<body>   
+    <select id="idSel" >
+		<option>selected</option>
+		<option>IIIEDU</option>
+		<option>YAHOO</option>
+		<option>GOOGLE</option>			
+	</select>
+</body>
+</html>
