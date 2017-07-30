@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var areas = document.getElementsByTagName('area');
+            var areasL = areas.length;
+
+            for (var i = 0; i < areasL; i++) {
+                areas[i].onmouseover = mouseOver;
+                areas[i].onmouseout = mouseOut;
+                //areas[i].index = i;
+                //areas[i].onmouseover = function(){
+                //    document.images[i].src="imgs/idstarL.gif";
+            }
+        });
+               
+            
+
+            //areas[i].onmouseout = function () {
+            //    document.images[i].src="imgs/imgstarS.gif";
+            function mouseOver() {                
+                //document.images[0].src="imgs/"+this.id.substr(2)+".gif";
+                document.images[0].src="imgs/idstarL.gif";
+                
+            }
+            function mouseOut() {            
+                document.images[0].src="imgs/imgstarS.gif";
+            }
+
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>
+        <img id="imgStarS" src="imgs/imgstarS.gif" alt="" usemap="Star" />
+        <img id="imgStarS" src="imgs/imgstarS.gif" alt="" usemap="Star" />
+        <img id="imgStarS" src="imgs/imgstarS.gif" alt="" usemap="Star" />
+        <img id="imgStarS" src="imgs/imgstarS.gif" alt="" usemap="Star" />
+       <img id="imgStarS" src="imgs/imgstarS.gif" alt="" usemap="Star" />
+        
+        <map name="Star" id="Star">
+            <area id="idStarL" shape="poly" coords="63,4,44,42,4,49,32,78,27,121,60,103,99,119,95,82,122,50,80,43" />
+            <area id="idStarL" shape="poly" coords="63,4,44,42,4,49,32,78,27,121,60,103,99,119,95,82,122,50,80,43" />
+            <area id="idStarL" shape="poly" coords="63,4,44,42,4,49,32,78,27,121,60,103,99,119,95,82,122,50,80,43" />
+            <area id="idStarL" shape="poly" coords="63,4,44,42,4,49,32,78,27,121,60,103,99,119,95,82,122,50,80,43" />
+            <area id="idStarL" shape="poly" coords="63,4,44,42,4,49,32,78,27,121,60,103,99,119,95,82,122,50,80,43" />
+        </map>
+    </div>
+</body>
+</html>
