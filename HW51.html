@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>HWIndex</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/Style1.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .classForm {
+            width: 90%;
+            margin: auto;
+            /*border:1px red solid;*/
+            margin-top: 100px;
+        }
+
+        .classDivRight {
+            width: 50%;
+            float: right;
+        }
+
+        .classDivLeft {
+            width: 50%;
+            float: left;
+        }
+
+        .classInput {
+            width: 80%;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .classTextarea {
+            width: 80%;
+            height: 200px;
+            resize: none;
+            font-size: 20px;
+            text-align: center;
+            line-height: 190px;
+        }
+
+        .classLabel {
+            font-size: 30px;
+        }
+
+        .classDiv {
+            width: 100%;
+            height: auto;
+        }
+
+        #selYear {
+            float: left;
+            margin: 10px;
+        }
+
+        #selMonth {
+            float: left;
+            margin: 10px;
+        }
+
+        #selDate {
+            float: left;
+            margin: 10px;
+        }
+
+        .classLabel1 {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        var year = 0;
+        var month = 0;
+        var date = 0;
+        window.onload = function () {
+            for (var i = 2010; i <= 2020; i++) {
+                var theYear = document.createElement("option");
+                theYear.setAttribute("value", i);
+                theYear.innerHTML = i;
+                document.getElementById("selYear").appendChild(theYear);
+            };
+            for (var i = 1; i <= 12; i++) {
+                var theMonth = document.createElement("option");
+                theMonth.setAttribute("value", i);
+                theMonth.innerHTML = i;
+                document.getElementById("selMonth").appendChild(theMonth);
+            }
+            document.getElementById("selYear").onchange = changeYear;
+            document.getElementById("selMonth").onchange = changeMonth;
+            document.getElementById("selDate").onchange = changeDate;
+        };
+        function changeYear() {
+            year = this.value;
+            document.getElementById("idtext").textContent = "您選擇的日期是 "+year + "年" + month + "月" + date + "日";
+            if ((year != 0) && (month != 0)) {
+                createDate();
+            }
+        };
+        function changeMonth() {
+            month = this.value;
+            document.getElementById("idtext").textContent = "您選擇的日期是 " + year + "年" + month + "月" + date + "日";
+            if ((year != 0) && (month != 0)) {
+                createDate();
+            }
+        };
+        function changeDate() {
+            date = this.value;
+            document.getElementById("idtext").textContent = "您選擇的日期是 " + year + "年" + month + "月" + date + "日";
+        }
+        function createDate() {
+            document.getElementById("selDate").innerHTML = "";
+            var day = new Date(year, month, 0);
+            var days = day.getDate();
+            for (var i = 1; i <= days; i++) {
+                var theDate = document.createElement("option");
+                theDate.setAttribute("value", i);
+                theDate.innerHTML = i;
+                document.getElementById("selDate").appendChild(theDate);
+            }
+        };
+    </script>
+
+</head>
+<body>
+    <div style="width:70%;margin:auto">
+        <header>
+            <nav>
+                <ol>
+                    <li><a href="HW1.html#work">HW01</a></li>
+                    <li><a href="HW2.html#work">HW02</a></li>
+                   <li><a href="HW3.html#work">HW03</a></li>
+                   <li><a href="HW4.html#work">HW04</a></li>
+                    <li><a href="HW5.html#work">HW05</a></li>
+                </ol>
+            </nav>
+            <img src="imgs/fish.jpg" style="width:100% ;" />
+        </header>
+        <article>
+            <nav><h2 id="work">作業</h2></nav>
+            <div>
+                <form class="classForm">
+                    <div class="classDivLeft">
+                        <label class="classLabel">Welcome</label>
+                        <div class="classDiv">
+                            <label class="classLabel1">年:</label><select id="selYear"><option>請選擇</option></select>
+                            <label class="classLabel1">月:</label><select id="selMonth"><option>請選擇</option></select>
+                            <label class="classLabel1">日:</label><select id="selDate"><option>請先選擇年月</option></select>
+
+                        </div>
+                    </div>
+                    <div class="classDivRight">
+                        <input class="classInput" type="text" readonly value="Information" />
+                        <textarea class="classTextarea" readonly id="idtext"></textarea>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
