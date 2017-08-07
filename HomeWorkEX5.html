@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            for (var i = 2000; i <= 2020; i++) {
+                var opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                var optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                //opt.value = i;
+                //opt.innerHTML = i;
+                document.getElementById('idY').appendChild(opt);
+            }
+            for (var j = 1; j <= 12; j++) {
+                var opt = document.createElement('option');
+                opt.setAttribute('value', i);
+                var optTxt = document.createTextNode(j);
+                opt.appendChild(optTxt);
+                document.getElementById('idM').appendChild(opt);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <select id="idY"></select>
+        <select id="idM"></select>
+        <select id="idD"></select>
+        <textarea></textarea>
+    </div>
+</body>
+</html>
