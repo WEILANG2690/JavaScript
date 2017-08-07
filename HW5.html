@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>日　曆</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script>
+        var selects = document.getElementsByTagName("select");
+        window.onload = function () {
+            for (i = 2010; i <= 2020; i++) {
+                var opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                var optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                document.getElementById('idSelectYear').appendChild(opt);
+            }
+
+            document.getElementById("idSelectMonth").addEventListener("change", ch);
+            for (i = 1; i <= 12; i++) {
+                var opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                var optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                document.getElementById('idSelectMonth').appendChild(opt);
+            }
+            //for (i = 1; i <= 31 ; i++) {
+            //    var opt = document.createElement("option");
+            //    opt.setAttribute("value", i);
+            //    var optTxt = document.createTextNode(i);
+            //    opt.appendChild(optTxt);
+            //    document.getElementById('idSelectDate').appendChild(opt);
+            //}
+            document.getElementById("idSelectDate").addEventListener("change", show);
+
+        };
+
+        function ch() {
+            var d = new Date(selects[0].value, selects[1].value, 0);
+            var maxD = d.getDate();
+            //document.getElementById("idSelectDate").innerHTML = "";
+            //document.getElementById("idSelectDate").innerHTML = "<option>--</option>";
+            for (i = 0; i <= maxD ; i++) {
+                var opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                var optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                document.getElementById('idSelectDate').appendChild(opt);
+            }
+        }
+        function show() {
+            document.getElementById("show").insertAdjacentHTML("BeforeEnd", "　　　"+selects[0].value + " 年 " + selects[1].value + " 月 " + selects[2].value + " 日") ;
+            
+        }
+
+    </script>
+    <style>
+         .date{font-family: 'Arial','Microsoft JhengHei';font-size:20px;line-height:30px;margin:70px 60px;float:left;}
+        select{width:70px;height:20px;margin:0 10px;}
+        h2{color:hotpink;font-family: 'Arial','Microsoft JhengHei';margin:0 0 0 130px;letter-spacing:2px;padding-top:10px;}
+        .showbox{float:right;margin-top:30px;height:285px;width:465px;background-image:url("../img/tell.png");background-size:100%;}
+       
+    </style>
+</head>
+<body>
+    <div id="allpage">
+        <header>
+            <img src="../img/head1.png" alt="logo" title="logo" width="1024" />
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">首　頁</a></li>
+                    <li><a href="HW1.html">九九乘法表</a></li>
+                    <li><a href="HW2.html">表單驗證</a></li>
+                    <li><a href="HW3.html">評點製作</a></li>
+                    <li><a href="HW4.html">廣告輪播</a></li>
+                    <li><a href="HW5.html">日　曆</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <article>
+                <img src="../img/TITLE/HW5.png" alt="HW1" title="HW1" width="1024" />
+                <div class="date">
+                    <select id="idSelectYear"><option>--</option></select>年
+                    <select id="idSelectMonth"><option>--</option></select>月
+                    <select id="idSelectDate"><option>--</option></select>日
+                </div>
+                <div class="showbox">
+                <h2 id="show">您選擇的日期是<br /></h2>
+                </div>
+                
+            </article>
+           
+        </div>
+        <footer>
+			<img src="../img/footer.jpg" alt="foot" title="foot" width="1024" />
+        </footer>
+    </div>
+</body>
+</html>
